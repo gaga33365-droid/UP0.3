@@ -1,57 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace ReviewSamples.Modules.Variants;
 
-public class Variant01_Book
+public sealed class Book
 {
-    public string T;
-    public string A;
-    public string I;
-    public bool On;
+    public string InventoryNumber { get; init; } = "";
+    public string Title { get; init; } = "";
+    public bool IsIssued { get; set; }
 }
 
-public class Variant01_Reader
+public sealed class Reader
 {
-    public string N;
-    public int C;
+    public int CardNumber { get; init; }
+    public string Name { get; init; } = "";
 }
 
-public class Variant01_LibraryBad
+public sealed class IssueRecord
 {
-    private List<Variant01_Book> books = new();
-    private Dictionary<int, string> issued = new();
+    public int ReaderCardNumber { get; init; }
+    public string BookInventoryNumber { get; init; } = "";
+    public DateOnly DueDate { get; init; }
+}
 
-    public string Issue(Variant01_Reader r, Variant01_Book b, int d)
+public sealed class Library
+{
+    private readonly List<Book> books = new();
+    private readonly List<Reader> readers = new();
+    private readonly List<IssueRecord> issueRecords = new();
+
+    public string Issue(Reader? reader, Book? book, int days)
     {
-        if (b.On == true)
+        if (reader is null || book is null)
+            return "Ошибка: читатель или книга не заданы.";
+
+        if (days <= 0)
+            return "Ошибка: срок выдачи должен быть больше нуля.";
+
+        if (!readers.Contains(reader))
+            return "Ошибка: читатель не найден.";
+
+        if (!books.Contains(book))
+            return "Ошибка: книга не найдена.";
+
+        if (book.IsIssued)
+            return "Ошибка: книга уже выдана.";
+
+        book.IsIssued = true;
+        issueRecords.Add(new IssueRecord
         {
-            return "bad";
-        }
+            ReaderCardNumber = reader.CardNumber,
+            BookInventoryNumber = book.InventoryNumber,
+            DueDate = DateOnly.FromDateTime(DateTime.Today).AddDays(days)
+        });
 
-        b.On = true;
-        var dt = DateTime.Now.AddDays(d);
-        issued[r.C] = b.I + ";" + dt.ToString();
-
-        Console.WriteLine("Issued " + b.T + " to " + r.N + " for " + d + " days");
-        return "ok";
+        return $"Книга «{book.Title}» выдана читателю {reader.Name}.";
     }
 
-    public string Return(Variant01_Reader r, Variant01_Book b)
+    public string Return(Reader? reader, Book? book)
     {
-        if (b.On == false)
-        {
-            return "bad";
-        }
+        if (reader is null || book is null)
+            return "Ошибка: читатель или книга не заданы.";
 
-        b.On = false;
-        var rec = issued[r.C];
-        var parts = rec.Split(";");
-        var due = DateTime.Parse(parts[1]);
+        var record = issueRecords.FirstOrDefault(x =>
+            x.ReaderCardNumber == reader.CardNumber &&
+            x.BookInventoryNumber == book.InventoryNumber);
 
-        if (DateTime.Now > due)
-        {
-            var days = (DateTime.Now - due).Days;
-            Console.WriteLine("Overdue by " + days + " days, fine = " + days * 10);
-        }
+        if (record is null)
+            return "Ошибка: эта книга не числится за данным читателем.";
 
-        return "ok";
+        issueRecords.Remove(record);
+        book.IsIssued = false;
+
+        var overdueDays =
+            DateOnly.FromDateTime(DateTime.Today).DayNumber - record.DueDate.DayNumber;
+
+        if (overdueDays > 0)
+            return $"Книга возвращена с просрочкой {overdueDays} дн.; штраф: {overdueDays * 10}.";
+
+        return "Книга возвращена вовремя.";
     }
 }
