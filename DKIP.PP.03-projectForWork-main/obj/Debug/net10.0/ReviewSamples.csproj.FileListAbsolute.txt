@@ -1,0 +1,15 @@
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\bin\Debug\net10.0\ReviewSamples.exe
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\bin\Debug\net10.0\ReviewSamples.deps.json
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\bin\Debug\net10.0\ReviewSamples.runtimeconfig.json
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\bin\Debug\net10.0\ReviewSamples.dll
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\bin\Debug\net10.0\ReviewSamples.pdb
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.AssemblyInfoInputs.cache
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.AssemblyInfo.cs
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.csproj.CoreCompileInputs.cache
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.sourcelink.json
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.dll
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\refint\ReviewSamples.dll
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.pdb
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ReviewSamples.genruntimeconfig.cache
+C:\Users\xeonlegendatop22848\Desktop\DKIP.PP.03-projectForWork-main\DKIP.PP.03-projectForWork-main\obj\Debug\net10.0\ref\ReviewSamples.dll
